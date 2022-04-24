@@ -1,0 +1,85 @@
+.skills {
+    padding: 120px 10px 0;
+    &__blocks {
+        padding-top: 60px;
+        display: grid;
+        grid-template-columns: repeat(4, 270px);
+        gap: 13px;
+    }
+    &__block {
+        position: relative;
+        padding: 30px 30px 25px 30px;
+        width: 270px;
+        height: 270px;
+        border: 1px solid #000000;
+       /*  svg {
+            // display: block;
+            // margin: left;
+        } */
+        &-title {
+            // text-align: center;
+            top: 115px;
+            position: absolute;
+        }
+        &-text {
+            position: absolute;
+            top: 150px;
+            width: 210px;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 18px;
+            color: #000000;
+        }
+    }
+    &__wrapper {
+        padding-top: 120px;
+        display: grid;
+        grid-template-columns: repeat(3, 350px);
+        column-gap: 45px;
+        row-gap: 35px;
+    }
+    &__scale {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        // grid-template: 21px 14px/200px 35px;
+        // grid-template-rows: repeat(2, 1fr);
+        // grid-auto-rows: 1fr;
+        // column-gap: 45px;
+        // row-gap: 8px;
+        // justify-content: space-between;
+        // align-content: space-between;
+        /*   display: flex;
+        justify-content: space-between; */
+        &-percent {
+            position: absolute;
+            right: 0;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 21px;
+            color: #000000;
+        }
+        &-title {
+            position: absolute;
+            left: 14px;
+            @include before_circle;
+            &:before {
+                left: -15px;
+                top: -8px;
+            }
+        }
+        &-graph {
+            margin-top: 55px;      
+            width: 350px;
+            height: 14px;
+            background: #E8E4DE;
+            border-radius: 4px;
+            span {
+                display: block;
+                height: 100%;
+                background-color: $main-color;
+                border-radius: 4px;
+            }
+        }
+    }
+}

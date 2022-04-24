@@ -1,0 +1,20 @@
+@mixin btn {
+    background-color: $main-color;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    padding: 12px 26px;
+    height: 45px;
+}
+
+@mixin before_circle {
+    &::before {
+        content: '';
+        position: absolute;
+        border-radius: 100%;
+        width: 36px;
+        height: 36px;
+        background: $main-color;
+        z-index: -1;
+        top: -25%;
+        left: 0;
+    }
+}

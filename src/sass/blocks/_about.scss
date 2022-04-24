@@ -1,0 +1,87 @@
+.about {
+    min-height: 840px;
+    padding-top: 120px;
+    &-grid {
+        display: grid;
+        grid-template-columns: 400px 670px;
+        grid-template-rows: minmax(245px, auto) minmax(255px, auto);
+        gap: 40px 70px;
+        grid-template-areas: 
+        "photo descr"
+        "photo skills";
+    }
+    &__photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+  /*   &__descr {
+        padding-top: 7px;
+    } */
+    &__title {
+        margin-top: 7px;
+        position: relative;
+        padding-left: 12px;
+        // padding-top: 1px;
+        z-index: 2;
+        @include before_circle;
+    }
+    .divider {
+        margin: 4px auto 0 0;
+    }
+    &__descr_text {
+        margin-top: 20px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+        color: #000000;
+    }
+    &__skills {
+        &_block {
+            /* display: flex;
+            justify-content: center;
+            align-items: start;
+            margin-left: 15px; */
+            display: grid;
+            grid-template-columns: 40px minmax(200px, auto);
+            gap: 20px;
+            grid-template-rows: auto;
+            grid-auto-rows: auto;
+        }
+        &_img {
+            padding-right: 20px;
+            padding-top: 20px;
+            position: relative;
+            padding-left: 10px;
+            z-index: 2;
+            @include before_circle;
+            &:before {
+                top: 4px;
+                left: -5px;
+            }
+        }
+        &_text {
+            margin-top: 6px;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 18px;
+            color: #000000;
+        }
+    }
+}
+
+#photo {
+    grid-area: photo;
+}
+#descr {
+    grid-area: descr;
+}
+#skills {
+    grid-area: skills;
+    display: grid;
+    // grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    gap: 20px 50px;
+}
