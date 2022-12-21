@@ -19,64 +19,64 @@ counters.forEach((item, i) => {
 
 $(document).ready(function () {
 
-    // $("[data-modal=consultation]").on("click", function () {
-    //     $(".overlay, #consultation").fadeIn("slow");
+    // $("[data-modal=c-form]").on("click", function () {
+    //     $(".overlay").fadeIn("slow");
     // });
 
    
 
-    // function validateForms(form) {
-    //     $(form).validate( {
-    //         rules: {
-    //             name: {
-    //                 required: true,
-    //                 minlength: 2
-    //             },
-    //             email: {
-    //                 required: true,
-    //                 email: true
-    //             },
-    //             // phone: {
-    //             //     required: true,
-    //             //     minlength: 11
-    //             // }
-    //         },
-    //         messages: {
-    //             name: {
-    //                 required: "Пожалуйста, введите свое имя",
-    //                 minlength: jQuery.validator.format("Не менее {0} символов!")
-    //             },
-    //             // phone: {
-    //             //     required: "Пожалуйста, введите свой номер телефона",
-    //             //     minlength: jQuery.validator.format("Не менее {0} символов!")
-    //             // },
-    //             email: {
-    //                 required: "Пожалуйста, введите свой e-mail",
-    //                 email: "Формат почты: name@damain.com"
-    //             }
-    //         }
-    //     });
-    // };
+    function validateForms(form) {
+        $(form).validate( {
+            rules: {
+                // name: {
+                //     required: true,
+                //     minlength: 2
+                // },
+                email: {
+                    required: true,
+                    email: true
+                }
+                // phone: {
+                //     required: true,
+                //     minlength: 11
+                // }
+            },
+            messages: {
+                // name: {
+                //     required: "Пожалуйста, введите свое имя",
+                //     minlength: jQuery.validator.format("Не менее {0} символов!")
+                // },
+                // phone: {
+                //     required: "Пожалуйста, введите свой номер телефона",
+                //     minlength: jQuery.validator.format("Не менее {0} символов!")
+                // },
+                email: {
+                    required: "Пожалуйста, введите свой e-mail",
+                    email: "Формат почты: name@damain.com"
+                }
+            }
+        });
+    }
 
-    // validateForms("#order form");
+    validateForms("#c-form form");
     // validateForms('#consultation form');
     // validateForms('#consultation-form');
 
     $('form').submit(function (e) {
         e.preventDefault();
 
-        // if (!$(this).valid()) {
-        //     return;
-        // };
+        if (!$(this).valid()) {
+            return;
+        }
         $.ajax({
             type: "POST",
             url: "mailer/smart.php",
             data: $(this).serialize()
         }).done(function () {
-            $(this).find("input").val("");
+            // $(this).find("input").val("");
             // $('#consultation, #order').fadeOut();
             $('#thanks').fadeIn('slow');
-            // $('form').trigger('reset');
+            $('form').trigger('reset');
         });
         return false;
     });
